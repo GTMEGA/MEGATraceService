@@ -15,11 +15,16 @@ tasks.jar {
 publishing {
     publications {
         create<MavenPublication>("maven") {
+            groupId = "mega"
             artifactId = "megatraceservice"
             from(components["java"])
         }
     }
     repositories {
-        mavenLocal() //TODO: Actual maven publish
+        maven {
+            name = "mega"
+            setUrl("https://mvn.falsepattern.com/gtmega_releases")
+            credentials(PasswordCredentials::class)
+        }
     }
 }
