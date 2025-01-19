@@ -1,2 +1,2 @@
-rootProject.name = "megatraceservice"
+rootProject.name = "MEGATraceService"
 
