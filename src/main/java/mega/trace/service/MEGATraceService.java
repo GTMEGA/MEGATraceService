@@ -28,9 +28,15 @@ public interface MEGATraceService {
     MEGATraceService INSTANCE = find();
 
     static MEGATraceService find() {
-        for (MEGATraceService service : ServiceLoader.load(MEGATraceService.class))
-            return service;
-        return null;
+        MEGATraceServiceStub fallback = new MEGATraceServiceStub();
+        for (MEGATraceService service : ServiceLoader.load(MEGATraceService.class)) {
+            if (service instanceof MEGATraceServiceStub) {
+                fallback = (MEGATraceServiceStub) service;
+            } else {
+                return service;
+            }
+        }
+        return fallback;
     }
 
     void message(byte[] msg);
