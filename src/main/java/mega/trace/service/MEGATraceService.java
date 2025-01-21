@@ -39,7 +39,13 @@ public interface MEGATraceService {
         return fallback;
     }
 
+    void markProfiler(Object profiler, String prefix, int color);
+
+    void message(String msg);
+
     void message(byte[] msg);
+
+    void messageColor(String msg, int color);
 
     void messageColor(byte[] msg, int color);
 }
