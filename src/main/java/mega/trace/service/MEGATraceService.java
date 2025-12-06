@@ -39,6 +39,11 @@ public interface MEGATraceService {
         return fallback;
     }
 
+    /**
+     * @return {@code true} if this implementation will do anything
+     */
+    boolean isEnabled();
+
     void markProfiler(Object profiler, String prefix, int color);
 
     void message(String msg);

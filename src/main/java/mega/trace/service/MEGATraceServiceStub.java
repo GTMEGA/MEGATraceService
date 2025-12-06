@@ -5,6 +5,11 @@ public final class MEGATraceServiceStub implements MEGATraceService {
     }
 
     @Override
+    public boolean isEnabled() {
+        return false;
+    }
+
+    @Override
     public void markProfiler(Object profiler, String prefix, int color) {
     }
 
